@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio PRA | International Law Firm for Italy, Germany, Austria and Switzerland</title>
+  <meta name="description" content="Studio PRA is an international law firm founded in 2004. Legal advice and assistance for cross-border matters between Italy, Germany, Austria and Switzerland.">
+  <meta name="theme-color" content="#281614">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+  <link rel="preconnect" href="https://studiopra.it" crossorigin>
+
+  <link rel="preload" as="image" href="https://studiopra.it/wp-content/uploads/2026/04/studio-pra-avvocati-internazionali-riccardo-antonazzo.jpeg" fetchpriority="high">
+  <link rel="preload" as="image" href="https://studiopra.it/wp-content/uploads/2025/06/PRA-International-Logo-border-trasparent-e1749145604261.png" fetchpriority="high">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"></noscript>
+  <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+  <style>
+    :root {
+      --ink: oklch(17% 0.025 35);
+      --ink-2: oklch(23% 0.03 35);
+      --ink-3: oklch(30% 0.035 35);
+      --ivory: oklch(96% 0.012 82);
+      --paper: oklch(92% 0.024 82);
+      --paper-2: oklch(87% 0.028 78);
+      --muted: oklch(57% 0.026 55);
+      --burgundy: oklch(47% 0.18 28);
+      --burgundy-deep: oklch(34% 0.13 28);
+      --gold: oklch(74% 0.095 82);
+      --gold-soft: oklch(88% 0.058 84);
+      --anthracite: oklch(25% 0.012 240);
+      --anthracite-2: oklch(20% 0.012 240);
+      --line: oklch(80% 0.03 75 / 42%);
+      --shadow: 0 24px 70px oklch(12% 0.025 35 / 22%);
+      --shadow-soft: 0 16px 45px oklch(18% 0.02 35 / 12%);
+      --max: 1440px;
+      --wide: 1560px;
+      --page-gutter: clamp(28px, 5vw, 96px);
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: var(--ivory);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .container { width: min(var(--max), calc(100% - var(--page-gutter))); margin: 0 auto; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .contact-bar {
+      position: relative;
+      z-index: 5;
+      color: var(--ivory);
+      background: linear-gradient(90deg, var(--burgundy), var(--burgundy-deep));
+      border-bottom: 1px solid oklch(70% 0.1 70 / 25%);
+    }
+    .contact-bar__inner {
+      width: min(var(--wide), calc(100% - var(--page-gutter)));
+      margin: 0 auto;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      padding: 7px 0;
+      font-size: 12px;
+    }
+    .contact-bar__label {
+      color: oklch(88% 0.05 82);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .contact-bar__links {
+      flex: 1 1 auto;
+      min-width: min(100%, 760px);
+      max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 12px;
+    }
+    .contact-bar a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      text-decoration: none;
+      color: oklch(96% 0.012 82);
+      opacity: .92;
+      transition: opacity .25s var(--ease), transform .25s var(--ease);
+    }
+    .contact-bar a:hover { opacity: 1; transform: translateY(-1px); }
+    .flag-icon { border-radius: 999px; box-shadow: 0 0 0 1px oklch(96% 0.01 82 / 45%); }
+
+    .hero {
+      position: relative;
+      min-height: 86vh;
+      color: var(--ivory);
+      background:
+        linear-gradient(105deg, oklch(14% 0.025 35 / 98%) 0%, oklch(18% 0.03 35 / 94%) 44%, oklch(19% 0.035 35 / 66%) 70%, oklch(15% 0.02 35 / 74%) 100%),
+        url('https://studiopra.it/wp-content/uploads/2026/04/studio-pra-avvocati-internazionali-riccardo-antonazzo.jpeg') center / cover;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 12% 22%, oklch(48% 0.16 28 / 36%), transparent 30%),
+        radial-gradient(circle at 86% 12%, oklch(75% 0.1 82 / 20%), transparent 28%),
+        linear-gradient(90deg, oklch(90% 0.02 82 / 7%) 1px, transparent 1px),
+        linear-gradient(0deg, oklch(90% 0.02 82 / 5%) 1px, transparent 1px);
+      background-size: auto, auto, 72px 72px, 72px 72px;
+      opacity: .9;
+    }
+    .hero__nav {
+      width: min(var(--wide), calc(100% - var(--page-gutter)));
+      margin: 0 auto;
+      padding: 26px 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+    }
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+    .brand-mark img {
+      width: 168px;
+      height: 84px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 26px oklch(5% 0.02 35 / 52%));
+    }
+    .brand-mark span {
+      display: block;
+      color: oklch(91% 0.04 82);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-link {
+      color: oklch(92% 0.02 82);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      opacity: .9;
+      transition: color .25s var(--ease), opacity .25s var(--ease);
+    }
+    .nav-link:hover { color: var(--gold-soft); opacity: 1; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .28s var(--ease), box-shadow .28s var(--ease), background .28s var(--ease), color .28s var(--ease), border-color .28s var(--ease);
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button--primary {
+      color: oklch(18% 0.025 35);
+      background: var(--gold);
+      box-shadow: 0 16px 34px oklch(73% 0.105 82 / 28%);
+    }
+    .button--primary:hover { background: var(--gold-soft); box-shadow: 0 22px 44px oklch(73% 0.105 82 / 36%); }
+    .button--ghost {
+      color: var(--ivory);
+      border: 1px solid oklch(92% 0.02 82 / 34%);
+      background: oklch(98% 0.01 82 / 8%);
+    }
+    .button--ghost:hover { border-color: var(--gold); color: var(--gold-soft); background: oklch(98% 0.01 82 / 12%); }
+
+    .hero__grid {
+      min-height: calc(86vh - 150px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, .72fr);
+      gap: clamp(38px, 6vw, 90px);
+      align-items: center;
+      padding: clamp(48px, 7vw, 94px) 0 clamp(68px, 9vw, 120px);
+    }
+    .hero__copy { max-width: 780px; }
+    .hero h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(52px, 8vw, 104px);
+      line-height: .92;
+      letter-spacing: -.07em;
+      font-weight: 900;
+    }
+    .hero h1 span {
+      display: block;
+      color: var(--gold-soft);
+    }
+    .hero__lead {
+      max-width: 650px;
+      margin: 28px 0 0;
+      color: oklch(89% 0.025 82);
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.45;
+      font-weight: 500;
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 44px;
+      max-width: 720px;
+      overflow: hidden;
+      border: 1px solid oklch(92% 0.02 82 / 18%);
+      background: oklch(92% 0.02 82 / 14%);
+      border-radius: 26px;
+      box-shadow: 0 24px 70px oklch(8% 0.02 35 / 24%);
+    }
+    .proof {
+      padding: 20px;
+      background: oklch(19% 0.025 35 / 70%);
+    }
+    .proof strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .proof span {
+      display: block;
+      margin-top: 8px;
+      color: oklch(87% 0.02 82);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .consultation-panel {
+      align-self: end;
+      padding: clamp(26px, 4vw, 34px);
+      color: var(--ink);
+      background: linear-gradient(145deg, oklch(97% 0.014 82), oklch(89% 0.026 82));
+      border: 1px solid oklch(92% 0.04 82 / 70%);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+    }
+    .consultation-panel h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+    .consultation-panel p { margin: 14px 0 22px; color: var(--muted); font-weight: 500; }
+    .panel-list { display: grid; gap: 12px; margin: 0 0 24px; padding: 0; list-style: none; }
+    .panel-list li {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--ink-2);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .panel-list span:first-child {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      color: var(--burgundy);
+      background: oklch(73% 0.105 82 / 18%);
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .section { padding: clamp(76px, 9vw, 128px) 0; }
+    .section--paper {
+      position: relative;
+      background:
+        radial-gradient(circle at 8% 14%, oklch(73% 0.105 82 / 16%), transparent 24%),
+        linear-gradient(180deg, var(--paper), var(--ivory));
+    }
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(280px, .55fr);
+      gap: clamp(24px, 5vw, 70px);
+      align-items: end;
+      margin-bottom: clamp(34px, 5vw, 62px);
+    }
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(38px, 5.6vw, 72px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .pathways-shell {
+      position: relative;
+      padding: clamp(26px, 4vw, 42px);
+      color: var(--ivory);
+      background:
+        radial-gradient(circle at 12% 16%, oklch(42% 0.13 28 / 22%), transparent 30%),
+        radial-gradient(circle at 88% 78%, oklch(70% 0.07 82 / 10%), transparent 30%),
+        linear-gradient(135deg, oklch(24% 0.018 35), oklch(20% 0.014 240));
+      border: 1px solid oklch(92% 0.02 82 / 14%);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .pathways-shell::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 1px solid oklch(92% 0.02 82 / 12%);
+      border-radius: 26px;
+      pointer-events: none;
+    }
+    .pathways-shell > * { position: relative; z-index: 1; }
+    .pathways-shell .section-header { margin-bottom: clamp(28px, 4vw, 44px); }
+    .pathways-shell .section-header h2 { color: var(--ivory); }
+    .pathways-shell .section-header p { color: oklch(86% 0.02 82); }
+    .pathways-shell .eyebrow { color: oklch(84% 0.07 82); }
+    .pathways {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: clamp(18px, 3vw, 30px);
+    }
+    .pathway {
+      position: relative;
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      color: var(--ivory);
+      text-decoration: none;
+      background: oklch(18% 0.012 240);
+      border: 1px solid oklch(92% 0.02 82 / 16%);
+      border-radius: 28px;
+      box-shadow: 0 24px 70px oklch(8% 0.02 35 / 28%);
+      transition: transform .42s var(--ease), box-shadow .42s var(--ease), border-color .42s var(--ease);
+    }
+    .pathway:hover { transform: translateY(-7px); box-shadow: 0 34px 86px oklch(6% 0.02 35 / 36%); border-color: oklch(82% 0.07 82 / 42%); }
+    .pathway::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--path-image) center / cover;
+      z-index: 0;
+      filter: saturate(.92) contrast(1.02) brightness(.78);
+      transition: transform .7s var(--ease), filter .7s var(--ease);
+    }
+    .pathway::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, oklch(16% 0.012 240 / 18%) 0%, oklch(16% 0.012 240 / 62%) 46%, oklch(16% 0.012 240 / 94%) 100%),
+        linear-gradient(120deg, oklch(33% 0.13 28 / 32%), transparent 58%);
+      z-index: 0;
+    }
+    .pathway:hover::before { transform: scale(1.04); filter: saturate(.98) contrast(1.04) brightness(.84); }
+    .pathway > * { position: relative; z-index: 1; }
+    .pathway__content { padding: clamp(26px, 4vw, 38px); }
+    .pathway__flags { display: flex; align-items: center; gap: 12px; font-size: 25px; margin-bottom: 22px; }
+    .pathway__flags span { filter: drop-shadow(0 8px 14px oklch(5% 0.02 35 / 40%)); }
+    .pathway__kicker {
+      display: inline-flex;
+      width: fit-content;
+      margin: 0 0 12px;
+      padding: 7px 11px;
+      color: oklch(96% 0.018 82);
+      background: oklch(96% 0.014 82 / 13%);
+      border: 1px solid oklch(92% 0.02 82 / 22%);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .pathway h3 {
+      margin: 0 0 16px;
+      max-width: 520px;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+    .pathway p { max-width: 560px; margin: 0; color: oklch(91% 0.025 82); font-size: 16px; font-weight: 500; }
+    .pathway__points {
+      display: grid;
+      gap: 9px;
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+    }
+    .pathway__points li { color: oklch(88% 0.02 82); font-size: 14px; font-weight: 600; }
+    .pathway__points li::before { content: '•'; color: var(--gold-soft); margin-right: 9px; }
+    .pathway__cta {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 26px;
+      padding: 12px 18px;
+      color: var(--ink);
+      background: var(--gold-soft);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: clamp(28px, 5vw, 70px);
+      align-items: start;
+    }
+    .services-copy h2 {
+      margin: 0;
+      font-size: clamp(38px, 5.2vw, 68px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .services-copy p { color: var(--muted); font-size: 17px; font-weight: 500; }
+    .services-note {
+      margin-top: 22px;
+      padding: 18px 20px;
+      color: var(--ink-2);
+      background: oklch(99% 0.006 82 / 72%);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+    .services-note strong { display: block; margin-bottom: 4px; color: var(--burgundy); }
+    .services-list {
+      display: grid;
+      gap: 16px;
+    }
+    .service-card {
+      padding: clamp(22px, 3vw, 30px);
+      background: oklch(99% 0.006 82 / 68%);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: var(--shadow-soft);
+    }
+    .service-card h3 { margin: 0 0 12px; color: var(--burgundy); font-size: 21px; letter-spacing: -.025em; }
+    .service-card__label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .service-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+    .service-card li { color: var(--ink-2); font-size: 14px; font-weight: 600; }
+    .service-card li::before { content: '•'; color: var(--burgundy); margin-right: 9px; }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: clamp(26px, 5vw, 76px);
+      align-items: center;
+    }
+    .portrait-frame {
+      position: relative;
+      padding: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      box-shadow: var(--shadow-soft);
+    }
+    .portrait-frame::after {
+      content: '';
+      position: absolute;
+      right: -18px;
+      bottom: -18px;
+      width: 42%;
+      height: 42%;
+      background: linear-gradient(135deg, transparent 0 54%, var(--gold) 54% 58%, transparent 58%);
+      border-radius: 0 0 34px 0;
+      pointer-events: none;
+    }
+    .portrait-frame img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center 38%;
+      border-radius: 22px;
+      filter: sepia(.06) contrast(1.03) saturate(.94);
+    }
+    .trust-copy h2 {
+      margin: 0;
+      font-size: clamp(38px, 5.2vw, 68px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .trust-copy p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .trust-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .trust-point {
+      padding: 22px;
+      background: oklch(99% 0.006 82 / 64%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+    .trust-point strong { display: block; margin-bottom: 8px; color: var(--burgundy); font-size: 15px; }
+    .trust-point span { color: var(--muted); font-size: 14px; font-weight: 500; }
+
+    .map-section {
+      color: var(--ivory);
+      background:
+        radial-gradient(circle at 18% 20%, oklch(43% 0.17 28 / 26%), transparent 28%),
+        linear-gradient(140deg, var(--ink), var(--ink-2));
+    }
+    .map-section .section-header p { color: oklch(83% 0.025 82); }
+    .map-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .map-container {
+      min-height: 540px;
+      overflow: hidden;
+      border: 1px solid oklch(92% 0.02 82 / 18%);
+      border-radius: 34px;
+      box-shadow: 0 34px 90px oklch(7% 0.02 35 / 34%);
+    }
+    #map { width: 100%; height: 100%; min-height: 540px; }
+    .office-list {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+    .office-filter {
+      width: 100%;
+      padding: 17px 18px;
+      color: var(--ivory);
+      text-align: left;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      background: oklch(96% 0.012 82 / 8%);
+      border: 1px solid oklch(92% 0.02 82 / 16%);
+      border-radius: 18px;
+      cursor: pointer;
+      transition: transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+    }
+    .office-filter:hover,
+    .office-filter:focus-visible {
+      transform: translateX(4px);
+      border-color: var(--gold);
+      background: oklch(96% 0.012 82 / 13%);
+      outline: none;
+    }
+    .office-filter span { color: var(--gold-soft); font-weight: 900; }
+
+    .leaflet-popup-content-wrapper { border-radius: 20px; box-shadow: var(--shadow-soft); }
+    .custom-popup { max-width: 290px; overflow: hidden; border-radius: 20px; }
+    .popup-image { width: 100%; height: 128px; object-fit: cover; cursor: pointer; }
+    .popup-content { padding: 18px; color: var(--ink); }
+    .popup-title { margin-bottom: 8px; color: var(--burgundy); font-weight: 900; }
+    .popup-address, .popup-phone { color: var(--muted); font-size: 13px; font-weight: 600; }
+    .popup-phone { margin-top: 8px; color: var(--ink-2); }
+
+    .cta-section {
+      position: relative;
+      color: var(--ivory);
+      background:
+        linear-gradient(120deg, oklch(18% 0.03 35 / 94%), oklch(31% 0.13 28 / 86%)),
+        url('https://studiopra.it/wp-content/uploads/2025/07/anwalt-in-italien-in-zurich-studio-pra.jpg') center / cover;
+      overflow: hidden;
+    }
+    .cta-box {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(280px, .42fr);
+      gap: clamp(26px, 5vw, 70px);
+      align-items: center;
+      padding: clamp(34px, 6vw, 64px);
+      border: 1px solid oklch(92% 0.02 82 / 18%);
+      border-radius: 36px;
+      background: oklch(14% 0.02 35 / 54%);
+      box-shadow: var(--shadow);
+    }
+    .cta-box h2 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 66px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .cta-box p { max-width: 710px; color: oklch(89% 0.025 82); font-size: 18px; font-weight: 500; }
+    .cta-card {
+      padding: 28px;
+      color: var(--ink);
+      background: var(--ivory);
+      border-radius: 28px;
+    }
+    .cta-card strong { display: block; font-size: 21px; line-height: 1.15; letter-spacing: -.035em; }
+    .cta-card a { margin-top: 20px; width: 100%; }
+
+    .footer {
+      padding: 70px 0 32px;
+      color: oklch(86% 0.02 82);
+      background: oklch(13% 0.022 35);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(28px, 5vw, 70px);
+      margin-bottom: 46px;
+    }
+    .footer-brand img { width: 170px; height: 86px; object-fit: contain; margin-bottom: 20px; }
+    .footer-brand p { max-width: 340px; color: oklch(72% 0.02 82); font-size: 14px; }
+    .offices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .office h3 {
+      margin: 0 0 8px;
+      color: var(--gold-soft);
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .office p, .office a {
+      margin: 0;
+      color: oklch(78% 0.018 82);
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .office a:hover { color: var(--ivory); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 24px;
+      border-top: 1px solid oklch(92% 0.02 82 / 12%);
+      color: oklch(64% 0.018 82);
+      font-size: 13px;
+    }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a { color: inherit; text-decoration: none; }
+    .footer-links a:hover { color: var(--ivory); }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: none;
+      place-items: center;
+      padding: 28px;
+      background: oklch(8% 0.02 35 / 92%);
+      cursor: pointer;
+    }
+    .image-modal.active { display: grid; }
+    .modal-image { max-width: min(1040px, 94vw); max-height: 86vh; object-fit: contain; border-radius: 24px; box-shadow: var(--shadow); }
+    .modal-close {
+      position: absolute;
+      top: 22px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      color: var(--ivory);
+      background: transparent;
+      border: 1px solid oklch(92% 0.02 82 / 35%);
+      border-radius: 999px;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(20px); animation: reveal .8s var(--ease) forwards; }
+      .reveal:nth-child(2) { animation-delay: .08s; }
+      .reveal:nth-child(3) { animation-delay: .16s; }
+      @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+    }
+
+
+    html:not([data-theme="light"]) .service-card:nth-child(2) { background: oklch(26% 0.02 55 / 78%); }
+    html:not([data-theme="light"]) .service-card:nth-child(3) { background: oklch(24% 0.018 240 / 78%); }
+    html:not([data-theme="light"]) .trust-point:nth-child(2),
+    html:not([data-theme="light"]) .trust-point:nth-child(3) { background: oklch(25% 0.018 55 / 76%); }
+    html:not([data-theme="light"]) .pathways-shell { box-shadow: 0 26px 82px oklch(7% 0.02 240 / 42%); }
+    @media (max-width: 980px) {
+      .contact-bar__inner, .hero__nav { align-items: flex-start; flex-direction: column; }
+      .contact-bar__links, .nav-actions { justify-content: flex-start; }
+      .hero__grid, .section-header, .trust-grid, .map-shell, .cta-box, .footer-grid, .services-grid { grid-template-columns: 1fr; }
+      .consultation-panel { align-self: stretch; }
+      .pathways { grid-template-columns: 1fr; }
+      .offices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .map-container, #map { min-height: 430px; }
+    }
+    @media (max-width: 640px) {
+      .container, .hero__nav { width: min(100% - 28px, var(--max)); }
+      .hero { min-height: auto; }
+      .brand-mark span, .nav-link { display: none; }
+      .proof-strip { grid-template-columns: 1fr; border-radius: 22px; }
+      .trust-points, .offices { grid-template-columns: 1fr; }
+      .pathway { min-height: 320px; }
+      .contact-bar__links { display: grid; grid-template-columns: 1fr; width: 100%; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+
+    /* Refinements: language-aware redesign, centered portrait, quieter offices, theme switch */
+    :root {
+      color-scheme: dark;
+      --theme-surface: oklch(16% 0.018 35);
+      --theme-paper: oklch(20% 0.022 32);
+      --theme-paper-2: oklch(24% 0.018 55);
+      --theme-text: oklch(94% 0.014 82);
+      --theme-muted: oklch(78% 0.018 82);
+      --theme-panel: oklch(25% 0.024 35 / 78%);
+      --theme-panel-strong: oklch(21% 0.026 32 / 92%);
+      --office-bg: linear-gradient(160deg, oklch(19% 0.018 55), oklch(22% 0.016 240));
+      --office-text: oklch(94% 0.014 82);
+      --office-muted: oklch(76% 0.018 82);
+      --cta-bg: linear-gradient(135deg, oklch(18% 0.025 32), oklch(24% 0.018 55));
+      --cta-panel: oklch(27% 0.026 35 / 76%);
+    }
+    html[data-theme="light"] {
+      color-scheme: light;
+      --ink: oklch(19% 0.018 35);
+      --ink-2: oklch(29% 0.018 35);
+      --ink-3: oklch(38% 0.018 35);
+      --ivory: oklch(98% 0.008 82);
+      --paper: oklch(94% 0.016 82);
+      --paper-2: oklch(90% 0.018 78);
+      --muted: oklch(46% 0.018 55);
+      --burgundy: oklch(43% 0.15 28);
+      --burgundy-deep: oklch(31% 0.11 28);
+      --gold: oklch(68% 0.08 82);
+      --gold-soft: oklch(84% 0.045 84);
+      --line: oklch(76% 0.025 75 / 48%);
+      --theme-surface: oklch(98% 0.008 82);
+      --theme-paper: oklch(94% 0.016 82);
+      --theme-paper-2: oklch(90% 0.018 78);
+      --theme-text: oklch(19% 0.018 35);
+      --theme-muted: oklch(46% 0.018 55);
+      --theme-panel: oklch(99% 0.006 82 / 78%);
+      --office-bg: linear-gradient(180deg, oklch(97% 0.008 82), oklch(92% 0.012 78));
+      --office-text: oklch(21% 0.018 35);
+      --office-muted: oklch(45% 0.018 55);
+      --cta-bg: linear-gradient(135deg, oklch(94% 0.014 82), oklch(88% 0.016 78));
+      --cta-panel: oklch(100% 0.004 82 / 82%);
+      --shadow: 0 24px 70px oklch(28% 0.025 35 / 13%);
+      --shadow-soft: 0 16px 45px oklch(28% 0.02 35 / 9%);
+    }
+    html[data-theme="light"] .hero {
+      color: var(--ivory);
+      background:
+        linear-gradient(105deg, oklch(18% 0.025 35 / 92%) 0%, oklch(24% 0.03 35 / 86%) 44%, oklch(30% 0.035 35 / 50%) 70%, oklch(21% 0.02 35 / 62%) 100%),
+        url('https://studiopra.it/wp-content/uploads/2026/04/studio-pra-avvocati-internazionali-riccardo-antonazzo.jpeg') center / cover;
+    }
+
+
+    html:not([data-theme="light"]) .contact-bar {
+      background: linear-gradient(90deg, oklch(25% 0.08 28), oklch(18% 0.045 28));
+      border-bottom-color: oklch(78% 0.05 82 / 18%);
+    }
+    html:not([data-theme="light"]) body {
+      background: var(--theme-surface);
+      color: var(--theme-text);
+    }
+    html:not([data-theme="light"]) .section:not(.map-section):not(.cta-section) {
+      background:
+        radial-gradient(circle at 12% 10%, oklch(38% 0.09 28 / 9%), transparent 28%),
+        linear-gradient(180deg, var(--theme-surface), oklch(15% 0.016 35));
+    }
+    html:not([data-theme="light"]) .section--paper {
+      background:
+        radial-gradient(circle at 8% 14%, oklch(42% 0.13 28 / 14%), transparent 24%),
+        radial-gradient(circle at 92% 84%, oklch(42% 0.07 82 / 10%), transparent 28%),
+        linear-gradient(180deg, var(--theme-paper), var(--theme-surface));
+    }
+    html:not([data-theme="light"]) #services {
+      background:
+        radial-gradient(circle at 18% 20%, oklch(41% 0.12 28 / 11%), transparent 26%),
+        linear-gradient(145deg, oklch(18% 0.022 32), oklch(21% 0.018 55));
+    }
+    html:not([data-theme="light"]) section[aria-labelledby="trust-title"] {
+      background:
+        radial-gradient(circle at 84% 18%, oklch(67% 0.08 82 / 9%), transparent 25%),
+        linear-gradient(180deg, oklch(19% 0.018 48), oklch(16% 0.018 35));
+    }
+    html:not([data-theme="light"]) .consultation-panel,
+    html:not([data-theme="light"]) .service-card,
+    html:not([data-theme="light"]) .trust-point,
+    html:not([data-theme="light"]) .cta-card {
+      color: var(--theme-text);
+      background: var(--theme-panel);
+      border-color: oklch(92% 0.02 82 / 13%);
+      box-shadow: 0 20px 60px oklch(7% 0.02 240 / 34%);
+    }
+    html:not([data-theme="light"]) .consultation-panel h2,
+    html:not([data-theme="light"]) .services-copy h2,
+    html:not([data-theme="light"]) .trust-copy h2,
+    html:not([data-theme="light"]) .service-card li,
+    html:not([data-theme="light"]) .trust-point span,
+    html:not([data-theme="light"]) .cta-card strong {
+      color: var(--theme-text);
+    }
+    html:not([data-theme="light"]) .consultation-panel p,
+    html:not([data-theme="light"]) .services-copy p,
+    html:not([data-theme="light"]) .trust-copy p,
+    html:not([data-theme="light"]) .cta-card p,
+    html:not([data-theme="light"]) .panel-list li {
+      color: var(--theme-muted);
+    }
+    html:not([data-theme="light"]) .service-card h3,
+    html:not([data-theme="light"]) .trust-point strong,
+    html:not([data-theme="light"]) .map-section .eyebrow,
+    html:not([data-theme="light"]) .office-filter span {
+      color: oklch(84% 0.07 82);
+    }
+    html:not([data-theme="light"]) .map-container {
+      border-color: oklch(92% 0.02 82 / 12%);
+      box-shadow: 0 22px 70px oklch(6% 0.02 240 / 38%);
+    }
+    html:not([data-theme="light"]) .office-filter {
+      color: var(--office-text);
+      background: oklch(28% 0.012 240 / 72%);
+      border-color: oklch(92% 0.02 82 / 14%);
+    }
+    html:not([data-theme="light"]) .office-filter:hover,
+    html:not([data-theme="light"]) .office-filter:focus-visible {
+      background: oklch(32% 0.014 240 / 82%);
+      border-color: oklch(84% 0.07 82 / 44%);
+    }
+    html:not([data-theme="light"]) .footer {
+      background: oklch(12% 0.012 240);
+    }
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 16px;
+      color: var(--ivory);
+      border: 1px solid oklch(92% 0.02 82 / 34%);
+      border-radius: 999px;
+      background: oklch(98% 0.01 82 / 8%);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .28s var(--ease), border-color .28s var(--ease), background .28s var(--ease);
+    }
+    .theme-toggle:hover { transform: translateY(-2px); border-color: var(--gold); background: oklch(98% 0.01 82 / 14%); }
+    .section--paper { background: radial-gradient(circle at 8% 14%, oklch(73% 0.105 82 / 12%), transparent 24%), linear-gradient(180deg, var(--theme-paper), var(--theme-surface)); }
+    .portrait-frame::after { display: none; }
+    .portrait-frame img {
+      aspect-ratio: 4 / 3;
+      object-position: center 24%;
+      filter: sepia(.03) contrast(1.02) saturate(.96);
+    }
+    .services-copy h2, .trust-copy h2 { color: var(--theme-text); }
+    .services-copy p, .trust-copy p { color: var(--theme-muted); }
+    .service-card, .trust-point { background: var(--theme-panel); }
+    .map-section {
+      color: var(--office-text);
+      background: var(--office-bg);
+    }
+    .map-section .eyebrow { color: var(--burgundy); }
+    .map-section .section-header p { color: var(--office-muted); }
+    .map-section .section-header h2 { color: var(--office-text); }
+    .map-container {
+      border: 1px solid oklch(62% 0.018 78 / 30%);
+      box-shadow: 0 20px 60px oklch(28% 0.02 55 / 14%);
+    }
+    .office-filter {
+      color: var(--office-text);
+      background: oklch(100% 0.004 82 / 56%);
+      border-color: oklch(60% 0.02 75 / 24%);
+    }
+    .office-filter:hover,
+    .office-filter:focus-visible {
+      border-color: oklch(48% 0.12 28 / 42%);
+      background: oklch(100% 0.004 82 / 74%);
+    }
+    .office-filter span { color: var(--burgundy); }
+    .cta-section {
+      color: var(--ivory);
+      background: var(--cta-bg);
+    }
+    html[data-theme="light"] .cta-section { color: var(--theme-text); }
+    .cta-box { background: var(--cta-panel); border-color: oklch(62% 0.018 78 / 22%); }
+    html[data-theme="light"] .cta-box p { color: var(--theme-muted); }
+    html[data-theme="light"] .cta-card { background: var(--ivory); }
+    .footer { background: oklch(16% 0.012 240); }
+    html[data-theme="light"] .footer { background: oklch(22% 0.012 240); }
+
+    html:not([data-theme="light"]) .service-card:nth-child(2) { background: oklch(26% 0.02 55 / 78%); }
+    html:not([data-theme="light"]) .service-card:nth-child(3) { background: oklch(24% 0.018 240 / 78%); }
+    html:not([data-theme="light"]) .trust-point:nth-child(2),
+    html:not([data-theme="light"]) .trust-point:nth-child(3) { background: oklch(25% 0.018 55 / 76%); }
+    html:not([data-theme="light"]) .pathways-shell { box-shadow: 0 26px 82px oklch(7% 0.02 240 / 42%); }
+    @media (max-width: 980px) {
+      .pathways-shell { padding: 24px; border-radius: 28px; }
+      .pathway { min-height: 410px; }
+      .portrait-frame img { aspect-ratio: 16 / 11; object-position: center 22%; }
+    }
+    @media (max-width: 640px) {
+      .contact-bar__inner { align-items: center; }
+      .hero__nav { gap: 16px; }
+      .nav-actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+      .nav-actions .button, .theme-toggle { width: 100%; min-height: 44px; padding-inline: 12px; }
+      .pathways-shell { width: min(100% - 20px, var(--max)); padding: 18px; border-radius: 24px; }
+      .pathways-shell::before { inset: 9px; border-radius: 18px; }
+      .pathway { min-height: 470px; border-radius: 22px; }
+      .pathway__content { padding: 24px 20px; }
+      .pathway__flags { font-size: 20px; gap: 8px; }
+      .services-copy h2, .trust-copy h2, .cta-box h2 { letter-spacing: -.045em; }
+      .portrait-frame { padding: 10px; border-radius: 24px; }
+      .portrait-frame img { aspect-ratio: 1 / 1; object-position: center 18%; border-radius: 18px; }
+      .map-shell { gap: 16px; }
+      .map-container, #map { min-height: 360px; border-radius: 24px; }
+      .office-filter { border-radius: 14px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="imageModal" class="image-modal" aria-hidden="true">
+    <button class="modal-close" type="button" aria-label="Close image">×</button>
+    <img id="modalImage" class="modal-image" alt="Studio PRA office">
+  </div>
+
+  <header class="contact-bar" aria-label="Direct office contacts">
+    <div class="contact-bar__inner">
+      <div class="contact-bar__label">International desks</div>
+      <div class="contact-bar__links">
+        <a href="tel:+390696701728"><span class="flag-icon flag-icon-it"></span>+39 06 96701728</a>
+        <a href="tel:+4930652124028"><span class="flag-icon flag-icon-de"></span>+49 (0)30 652124028</a>
+        <a href="tel:+41435080447"><span class="flag-icon flag-icon-ch"></span>+41 (0)43 5080447</a>
+        <a href="tel:+4312051085658"><span class="flag-icon flag-icon-at"></span>+43 (0)1 205 108 56 58</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__nav">
+        <a class="brand-mark" href="https://studiopra.it" target="_blank" rel="noopener">
+          <img src="https://studiopra.it/wp-content/uploads/2025/06/PRA-International-Logo-border-trasparent-e1749145604261.png" alt="Studio PRA International" fetchpriority="high" loading="eager" width="168" height="84" decoding="sync">
+          <span>Partnership Romano & Antonazzo</span>
+        </a>
+        <nav class="nav-actions" aria-label="Primary navigation">
+          <a class="nav-link" href="#pathways">Legal paths</a>
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#offices">Offices</a>
+          <a class="button button--ghost" href="mailto:info@studiopra.it">Write us</a>
+          <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false"><span class="theme-toggle__icon" aria-hidden="true">☾</span><span class="theme-toggle__text">Dark</span></button>
+        </nav>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow reveal">International law firm, founded 2004</p>
+          <h1 id="hero-title" class="reveal">Legal certainty across <span>Italy, Germany, Austria and Switzerland.</span></h1>
+          <p class="hero__lead reveal">For private clients and companies with legal matters between Italy and the German-speaking region: Italian-law assistance for DACH clients, and coordinated support abroad for Italian clients.</p>
+          <div class="hero__actions reveal">
+            <a class="button button--primary" href="mailto:info@studiopra.it">Request a first assessment</a>
+            <a class="button button--ghost" href="#pathways">Choose your legal path</a>
+          </div>
+          <div class="proof-strip reveal" aria-label="Studio PRA credibility markers">
+            <div class="proof"><strong>2004</strong><span>Founded</span></div>
+            <div class="proof"><strong>4</strong><span>Jurisdictions</span></div>
+            <div class="proof"><strong>8</strong><span>Office locations</span></div>
+          </div>
+        </div>
+
+        <aside class="consultation-panel reveal" aria-label="Consultation promise">
+          <p class="eyebrow">Why clients contact PRA</p>
+          <h2>One legal partner when the matter crosses borders.</h2>
+          <p>Start with the route that matches where your matter begins. Studio PRA coordinates the legal systems involved.</p>
+          <ul class="panel-list">
+            <li><span>1</span><span>Italian-law assistance for clients in Germany, Austria and Switzerland.</span></li>
+            <li><span>2</span><span>Legal assistance abroad for Italian private clients and companies.</span></li>
+            <li><span>3</span><span>Direct access to Rome, Milan, Lecce, Frankfurt, Berlin, Saarbrücken, Zurich and Vienna.</span></li>
+          </ul>
+          <a class="button button--primary" href="mailto:info@studiopra.it">Email the international desk</a>
+        </aside>
+      </div>
+    </section>
+
+    <section lang="it" id="pathways" class="section section--paper" aria-labelledby="pathways-title">
+      <div class="container pathways-shell">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Start here · scegli in base al punto di partenza</p>
+            <h2 id="pathways-title">Due percorsi cliente, una rete legale internazionale.</h2>
+          </div>
+          <p>La scelta è semplice: parti dal tuo Paese o dalla lingua in cui vuoi essere seguito. Ogni percorso porta al desk più adatto, senza dover decifrare servizi o giurisdizioni.</p>
+        </div>
+        <div class="pathways">
+          <a lang="de" class="pathway" href="https://anwaltinitalien.de" target="_blank" rel="noopener" style="--path-image: url('https://studiopra.it/wp-content/uploads/2025/07/deutscher-anwalt-in-rom-studiopra.jpg');">
+            <div class="pathway__content">
+              <div class="pathway__flags" aria-hidden="true"><span class="flag-icon flag-icon-de"></span><span class="flag-icon flag-icon-at"></span><span class="flag-icon flag-icon-ch"></span><span>→</span><span class="flag-icon flag-icon-it"></span></div>
+              <span class="pathway__kicker">Parto da Germania, Austria o Svizzera</span>
+              <h3>Anwalt in Italien</h3>
+              <p>Für Mandanten aus Deutschland, Österreich und der Schweiz, die in Italien rechtliche Unterstützung benötigen: zweisprachige Beratung, lokale Präsenz und direkte Vertretung vor Ort.</p>
+              <ul class="pathway__points">
+                <li>Italienisches Recht verständlich erklärt, in deutscher Sprache</li>
+                <li>Verträge, Streitigkeiten, Immobilien, Erbrecht und Unternehmensinteressen in Italien</li>
+                <li>Koordination mit den italienischen Standorten und Ansprechpartnern im DACH-Raum</li>
+              </ul>
+              <span class="pathway__cta">Zur Webseite</span>
+            </div>
+          </a>
+          <a lang="it" class="pathway" href="https://avvocati.international" target="_blank" rel="noopener" style="--path-image: url('https://studiopra.it/wp-content/uploads/2025/07/berlin-anwalt-in-italien-studiopra.webp');">
+            <div class="pathway__content">
+              <div class="pathway__flags" aria-hidden="true"><span class="flag-icon flag-icon-it"></span><span>→</span><span class="flag-icon flag-icon-de"></span><span class="flag-icon flag-icon-at"></span><span class="flag-icon flag-icon-ch"></span></div>
+              <span class="pathway__kicker">Parto dall'Italia</span>
+              <h3>Avvocati International</h3>
+              <p>Per clienti italiani che cercano assistenza legale in Germania, Austria o Svizzera: coordinamento locale, lingua e strategia internazionale.</p>
+              <ul class="pathway__points">
+                <li>Assistenza per imprese e privati italiani con interessi nell'area DACH</li>
+                <li>Strategia transfrontaliera, lingua e coordinamento operativo</li>
+                <li>Contratti, lavoro, immigrazione, compliance e contenziosi internazionali</li>
+              </ul>
+              <span class="pathway__cta">Visita il desk italiano</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section lang="en" id="services" class="section section--paper" aria-labelledby="services-title">
+      <div class="container services-grid">
+        <div class="services-copy">
+          <p class="eyebrow">Services</p>
+          <h2 id="services-title">Three service desks, after you choose the right path.</h2>
+          <p>The two client paths above decide where to start. These desks then clarify the legal work Studio PRA can coordinate across Italy, Germany, Austria and Switzerland.</p>
+          <div class="services-note"><strong>How to read this section</strong><span>Choose a path first, then scan the service desk that matches your language and jurisdiction.</span></div>
+        </div>
+        <div class="services-list">
+          <article class="service-card" lang="en">
+            <span class="service-card__label">Cross-border matters</span>
+            <h3>International</h3>
+            <ul>
+              <li>International legal advice for companies, investors and private clients</li>
+              <li>Cross-border litigation, dispute resolution and out-of-court strategy</li>
+              <li>Commercial contracts, corporate law and business relationships</li>
+              <li>Due diligence, EU compliance and multi-jurisdictional coordination</li>
+              <li>Immigration and employment law in international contexts</li>
+            </ul>
+          </article>
+          <article class="service-card" lang="it">
+            <span class="service-card__label">Clienti italiani</span>
+            <h3>Italia</h3>
+            <ul>
+              <li>Consulenza legale per imprese italiane e privati con interessi all'estero</li>
+              <li>Assistenza contrattuale per attività e operazioni nell'area DACH</li>
+              <li>Difesa e coordinamento in contenziosi transfrontalieri</li>
+              <li>Supporto su lavoro, immigrazione, compliance e diritto europeo</li>
+            </ul>
+          </article>
+          <article class="service-card" lang="de">
+            <span class="service-card__label">Deutschsprachige Mandanten</span>
+            <h3>Deutschland</h3>
+            <ul>
+              <li>Italienisches Recht für Mandanten aus Deutschland, Österreich und der Schweiz</li>
+              <li>Beratung bei grenzüberschreitenden Vertragsfragen</li>
+              <li>Außergerichtliche und gerichtliche Vertretung in grenzüberschreitenden Streitfällen</li>
+              <li>Compliance, Due Diligence, Arbeits- und Migrationsrecht</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trust-title">
+      <div class="container trust-grid">
+        <div class="portrait-frame">
+          <img src="https://studiopra.it/wp-content/uploads/2026/04/studio-pra-avvocati-internazionali-riccardo-antonazzo.jpeg" alt="Studio PRA international lawyers" loading="lazy" width="720" height="900" decoding="async">
+        </div>
+        <div class="trust-copy">
+          <p class="eyebrow">International legal experience</p>
+          <h2 id="trust-title">Clear responsibility before the first meeting.</h2>
+          <p>Cross-border legal matters require discretion, clarity and a precise understanding of the systems involved. Studio PRA combines Italian roots with direct experience in Germany, Austria and Switzerland.</p>
+          <div class="trust-points">
+            <div class="trust-point"><strong>International by practice</strong><span>Italy, Germany, Austria and Switzerland are handled as one coordinated legal geography.</span></div>
+            <div class="trust-point"><strong>Clear first step</strong><span>Clients can request an initial assessment or choose the desk that matches their language and jurisdiction.</span></div>
+            <div class="trust-point"><strong>Concrete presence</strong><span>Eight offices give each cross-border case a real territorial anchor.</span></div>
+            <div class="trust-point"><strong>Discreet authority</strong><span>The experience is serious, warm and direct, without theatrical luxury.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section lang="en" id="offices" class="section map-section" aria-labelledby="offices-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Office network</p>
+            <h2 id="offices-title">Our offices and local points of contact.</h2>
+          </div>
+          <p>Rome, Milan, Lecce, Frankfurt, Berlin, Saarbrücken, Vienna and Zurich give each cross-border matter a concrete territorial anchor.</p>
+        </div>
+        <div class="map-shell">
+          <div class="map-container">
+            <div id="map" aria-label="Map of Studio PRA office locations"></div>
+          </div>
+          <div class="office-list" aria-label="Focus map by country">
+            <button class="office-filter" type="button" data-country="italy"><span>Italy</span> Rome, Milan, Lecce</button>
+            <button class="office-filter" type="button" data-country="germany"><span>Germany</span> Frankfurt, Berlin, Saarbrücken</button>
+            <button class="office-filter" type="button" data-country="austria"><span>Austria</span> Vienna</button>
+            <button class="office-filter" type="button" data-country="switzerland"><span>Switzerland</span> Zurich</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section" aria-labelledby="cta-title">
+      <div class="container cta-box">
+        <div>
+          <p class="eyebrow">First contact</p>
+          <h2 id="cta-title">Tell us where the matter begins. We will help define the next step.</h2>
+          <p>Write to us with the country involved, the legal issue and the level of urgency. The international desk will route the request with the right context.</p>
+        </div>
+        <div class="cta-card">
+          <strong>Prefer a direct first step?</strong>
+          <p>Send a concise request to the international desk.</p>
+          <a class="button button--primary" href="mailto:info@studiopra.it">Write to Studio PRA</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://studiopra.it/wp-content/uploads/2025/06/PRA-International-Logo-border-trasparent-e1749145604261.png" alt="Studio PRA International" loading="lazy" width="170" height="86" decoding="async">
+          <p>Studio PRA, Partnership Romano & Antonazzo. International legal advice between Italy and the German-speaking region.</p>
+        </div>
+        <div class="offices">
+          <div class="office"><h3>Rome</h3><p>Via Salaria 174<br>I-00198 Rome</p><a href="tel:+390696701728">+39 06 96701728</a></div>
+          <div class="office"><h3>Milan</h3><p>Via Monte Napoleone 8<br>I-20121 Milan</p><a href="tel:+390230310472">+39 02 30310472</a></div>
+          <div class="office"><h3>Lecce</h3><p>Via G. Di Brienne 13<br>I-73100 Lecce</p><a href="tel:+3908321680474">+39 0832 1680474</a></div>
+          <div class="office"><h3>Frankfurt</h3><p>Zeppelinstr. 7<br>D-61118 Bad Vilbel</p><a href="tel:+496924748404">+49 (0)69 24748404</a></div>
+          <div class="office"><h3>Berlin</h3><p>Friedrichstraße 171<br>D-10117 Berlin</p><a href="tel:+4930652124028">+49 (0)30 652124028</a></div>
+          <div class="office"><h3>Saarbrücken</h3><p>Bahnhofstr. 80<br>D-66111 Saarbrücken</p><a href="tel:+4968130984266">+49 (0)681 30984266</a></div>
+          <div class="office"><h3>Zurich</h3><p>Bellerivestraße 2<br>CH-8008 Zurich</p><a href="tel:+41435080447">+41 (0)43 5080447</a></div>
+          <div class="office"><h3>Vienna</h3><p>Schottenring 28/1/3<br>A-1010 Vienna</p><a href="tel:+4312051085658">+43 (0)1 205 108 56 58</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="https://studiopra.it" target="_blank" rel="noopener">Studio PRA</a>
+          <a href="Impressum.html">Impressum</a>
+        </div>
+        <div>© 2024 Studio PRA, Partnership Romano & Antonazzo. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script>
+    let map;
+    const markers = [];
+    const offices = [
+      { id: 'roma', name: 'Rome', country: 'italy', address: 'Via Salaria 174, I-00198 Rome', phone: '+39 06 96701728', lat: 41.9085, lng: 12.4606, image: 'https://studiopra.it/wp-content/uploads/2025/07/deutscher-anwalt-in-rom-studiopra.jpg' },
+      { id: 'milano', name: 'Milan', country: 'italy', address: 'Via Monte Napoleone 8, I-20121 Milan', phone: '+39 02 30310472', lat: 45.4687, lng: 9.1905, image: 'https://studiopra.it/wp-content/uploads/2025/07/deutscher-anwalt-in-milan-studiopra.jpg' },
+      { id: 'lecce', name: 'Lecce', country: 'italy', address: 'Via G. Di Brienne 13, I-73100 Lecce', phone: '+39 0832 1680474', lat: 40.3515, lng: 18.1750, image: 'https://studiopra.it/wp-content/uploads/2025/07/deutscher-anwalt-in-lecce-studiopra.jpg' },
+      { id: 'frankfurt', name: 'Frankfurt', country: 'germany', address: 'Zeppelinstr. 7, D-61118 Bad Vilbel', phone: '+49 (0)69 24748404', lat: 50.1856, lng: 8.7333, image: 'https://studiopra.it/wp-content/uploads/2025/07/frankfurt-anwalt-in-italien-studiopra.jpg.webp' },
+      { id: 'berlin', name: 'Berlin', country: 'germany', address: 'Friedrichstraße 171, D-10117 Berlin', phone: '+49 (0)30 652124028', lat: 52.5134, lng: 13.3883, image: 'https://studiopra.it/wp-content/uploads/2025/07/berlin-anwalt-in-italien-studiopra.webp' },
+      { id: 'saarbrucken', name: 'Saarbrücken', country: 'germany', address: 'Bahnhofstr. 80, D-66111 Saarbrücken', phone: '+49 (0)681 30984266', lat: 49.2408, lng: 6.9969, image: 'https://studiopra.it/wp-content/uploads/2025/07/saarbrucken-anwalt-in-italien-studiopra.webp' },
+      { id: 'zurich', name: 'Zurich', country: 'switzerland', address: 'Bellerivestraße 2, CH-8008 Zurich', phone: '+41 (0)43 5080447', lat: 47.36094430, lng: 8.54794060, image: 'https://studiopra.it/wp-content/uploads/2025/07/anwalt-in-italien-in-zurich-studio-pra.jpg' },
+      { id: 'wien', name: 'Vienna', country: 'austria', address: 'Schottenring 28/1/3, A-1010 Vienna', phone: '+43 (0)1 205 108 56 58', lat: 48.21661930, lng: 16.36938930, image: 'https://studiopra.it/wp-content/uploads/2025/07/Wien-anwalt-in-italien-studio-pra.webp' }
+    ];
+
+    function getCountryCode(country) {
+      return { italy: 'it', germany: 'de', austria: 'at', switzerland: 'ch' }[country] || 'it';
+    }
+
+    function initMap() {
+      if (!window.L) return;
+      map = L.map('map', { scrollWheelZoom: false }).setView([48.6, 10.3], 5);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      offices.forEach((office) => {
+        const customIcon = L.divIcon({
+          html: `<div style="width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid oklch(73% 0.105 82);background:oklch(96% 0.012 82);box-shadow:0 10px 22px rgba(0,0,0,.28);display:grid;place-items:center;"><div style="transform:rotate(45deg);"><span class="flag-icon flag-icon-${getCountryCode(office.country)}"></span></div></div>`,
+          className: 'custom-map-marker',
+          iconSize: [34, 34],
+          iconAnchor: [17, 34]
+        });
+        const marker = L.marker([office.lat, office.lng], { icon: customIcon }).addTo(map);
+        marker.bindPopup(`
+          <div class="custom-popup">
+            <img src="${office.image}" alt="${office.name} office" class="popup-image" data-modal-image="${office.image}" data-office-name="${office.name}" loading="lazy" width="290" height="128" decoding="async">
+            <div class="popup-content">
+              <div class="popup-title">${office.name}</div>
+              <div class="popup-address">${office.address}</div>
+              <div class="popup-phone">${office.phone}</div>
+            </div>
+          </div>`);
+        markers.push({ marker, office });
+      });
+    }
+
+    function focusCountry(country) {
+      if (!map) return;
+      const countryMarkers = markers.filter(({ office }) => office.country === country).map(({ marker }) => marker);
+      if (!countryMarkers.length) return;
+      const group = L.featureGroup(countryMarkers);
+      map.fitBounds(group.getBounds().pad(0.28), { padding: [45, 45] });
+      countryMarkers[0].openPopup();
+    }
+
+    function openImageModal(imageSrc, officeName) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = imageSrc;
+      modalImage.alt = `${officeName} office, full view`;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      try { localStorage.setItem('pra-theme', theme); } catch (error) {}
+      const toggle = document.querySelector('.theme-toggle');
+      if (toggle) {
+        const isLight = theme === 'light';
+        toggle.setAttribute('aria-pressed', String(isLight));
+        toggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+        toggle.querySelector('.theme-toggle__icon').textContent = isLight ? '☼' : '☾';
+        toggle.querySelector('.theme-toggle__text').textContent = isLight ? 'Light' : 'Dark';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const preferredTheme = (() => {
+        try { return localStorage.getItem('pra-theme'); } catch (error) { return null; }
+      })() || 'dark';
+      setTheme(preferredTheme);
+      document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+        setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+      });
+      initMap();
+      document.querySelectorAll('.office-filter').forEach((button) => {
+        button.addEventListener('click', () => focusCountry(button.dataset.country));
+      });
+      document.addEventListener('click', (event) => {
+        const image = event.target.closest('[data-modal-image]');
+        if (image) openImageModal(image.dataset.modalImage, image.dataset.officeName || 'Studio PRA');
+      });
+      document.querySelector('.modal-close').addEventListener('click', closeImageModal);
+      document.getElementById('imageModal').addEventListener('click', (event) => {
+        if (event.target.id === 'imageModal') closeImageModal();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeImageModal();
+      });
+    });
+  </script>
+</body>
+</html>
