@@ -685,6 +685,7 @@
       font-size: 12px;
       text-decoration: none;
     }
+    .mobile-address-break { display: none; }
     .office a:hover { color: var(--ivory); }
     .footer-bottom {
       display: flex;
@@ -1014,6 +1015,9 @@
         text-align: center;
       }
     }
+    @media (min-width: 360px) and (max-width: 640px) and (orientation: portrait) {
+      .mobile-address-break { display: block; }
+    }
     @media (min-width: 641px) and (max-width: 980px) {
       .office-list { grid-template-columns: repeat(2, minmax(220px, 280px)); }
       .offices { grid-template-columns: repeat(2, minmax(210px, 260px)); }
@@ -1246,7 +1250,7 @@
         </div>
         <div class="offices">
           <div class="office"><h3>Rome</h3><p>Via Salaria 174<br>I-00198 Rome</p><a href="tel:+390696701728">+39 06 96701728</a></div>
-          <div class="office"><h3>Milan</h3><p>Via Monte Napoleone 8<br>I-20121 Milan</p><a href="tel:+390230310472">+39 02 30310472</a></div>
+          <div class="office"><h3>Milan</h3><p>Via Monte Napoleone<br class="mobile-address-break"> 8<br>I-20121 Milan</p><a href="tel:+390****0472">+39 02 30310472</a></div>
           <div class="office"><h3>Lecce</h3><p>Via G. Di Brienne 13<br>I-73100 Lecce</p><a href="tel:+3908321680474">+39 0832 1680474</a></div>
           <div class="office"><h3>Frankfurt</h3><p>Zeppelinstr. 7<br>D-61118 Bad Vilbel</p><a href="tel:+496924748404">+49 (0)69 24748404</a></div>
           <div class="office"><h3>Berlin</h3><p>Friedrichstraße 171<br>D-10117 Berlin</p><a href="tel:+4930652124028">+49 (0)30 652124028</a></div>
