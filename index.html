@@ -988,6 +988,45 @@
       .offices { grid-template-columns: 1fr; }
     }
 
+    /* Mobile office lists: two balanced, centered columns when there is room. */
+    @media (max-width: 980px) {
+      .office-list,
+      .offices {
+        text-align: center;
+        justify-content: space-evenly;
+        justify-items: center;
+        column-gap: 0;
+      }
+      .office-list { row-gap: 14px; }
+      .offices { row-gap: 22px; }
+      .office-filter {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 96px;
+      }
+      .office-filter:hover,
+      .office-filter:focus-visible { transform: translateY(-2px); }
+      .office {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    @media (min-width: 641px) and (max-width: 980px) {
+      .office-list { grid-template-columns: repeat(2, minmax(220px, 280px)); }
+      .offices { grid-template-columns: repeat(2, minmax(210px, 260px)); }
+    }
+    @media (min-width: 360px) and (max-width: 640px) {
+      .office-list { grid-template-columns: repeat(2, minmax(144px, 156px)); }
+      .offices { grid-template-columns: repeat(2, minmax(132px, 136px)); }
+    }
+    @media (max-width: 359px) {
+      .office-list,
+      .offices { grid-template-columns: minmax(0, 1fr); }
+    }
+
   </style>
 </head>
 <body>
